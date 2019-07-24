@@ -33,4 +33,4 @@ class data():
         mass_x = mass_x[mass_x[:,0].argsort()] # sort it from earliest to latest using the UNIX time column
         mass_x[:,0] = (mass_x[:,0]-mass_x[0,0])/60 # convert time to minutes since start of data
 
-        self.massdata = mass_x
+        self.massdata = mass_x #ndarray object that contains partial pressure and time data.
