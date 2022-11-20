@@ -1,0 +1,23 @@
+#!/bin/bash
+
+#PBS -l nodes=1:ppn=1:gpus=1:gc_v100nvl
+
+#PBS -l pmem=250gb
+
+#PBS -l walltime=8:00:00
+
+#PBS -A dfc13_mri
+
+#PBS -l qos=mgc_mri
+
+#PBS -N dl_eval
+
+#PBS -t 0
+
+# activate conda environment
+conda activate conda-default
+
+cd ${HOME}/group/project/scripting/execution_scripts/machine_learning
+
+python 220622_evaluate_1vsall_model_by_metadata_v2.py ${PBS_ARRAYID}
+

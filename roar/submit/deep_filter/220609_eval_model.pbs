@@ -1,0 +1,22 @@
+#!/bin/bash
+
+#PBS -l nodes=1:ppn=1:gpus=1:gc_v100nvl
+
+#PBS -l pmem=200gb
+
+#PBS -l walltime=1:00:00
+
+#PBS -A dfc13_mri
+
+#PBS -l qos=mgc_mri
+
+#PBS -N dl_eval
+
+
+# activate conda environment
+conda activate conda-default
+
+cd ${HOME}/group/project/scripting/execution_scripts/machine_learning
+
+python 220609_evaluate_single_model_with_random_data_v1.py
+

@@ -1,0 +1,23 @@
+#!/bin/bash
+
+#PBS -l nodes=1:ppn=1:gpus=1
+
+#PBS -l pmem=200gb
+
+#PBS -l walltime=10:00:00
+
+#PBS -A dfc13_mri
+
+#PBS -l qos=mgc_mri
+
+#PBS -N dl_train
+
+#PBS -t 0-28
+
+# activate conda environment
+conda activate conda-default
+
+cd ${HOME}/group/project/scripting/execution_scripts/machine_learning
+
+python 220623_train_evaluate_single_model_with_random_data_argparse_v1.py --train-epoch-index ${PBS_ARRAYID} --eval-epoch 50 --pitch-index 7
+
